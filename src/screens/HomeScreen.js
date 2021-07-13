@@ -6,11 +6,14 @@ const HomeScreen = (props) => {
   return (
     <View>
       <Text style={styles.text}>Home Screen</Text>
-      <TouchableOpacity onPress = {() => props.navigation.navigate('Components')}>
-        <Text>Components Section</Text>
+      <TouchableOpacity style = {styles.button} onPress = {() => props.navigation.navigate('Components')}>
+        <Text style = {styles.btnText}>Components</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress = {() => props.navigation.navigate('List')}>
-        <Text>Lists Section</Text>
+      <TouchableOpacity style = {styles.button} onPress = {() => props.navigation.navigate('List')}>
+        <Text style = {styles.btnText}>Lists</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style = {styles.button} onPress = {() => props.navigation.navigate('Image')}>
+        <Text style = {styles.btnText}>Image</Text>
       </TouchableOpacity>
     </View>
   );
@@ -19,7 +22,20 @@ const HomeScreen = (props) => {
 const styles = StyleSheet.create({
   text: {
     fontSize: 30
-  }
+  },
+  button: {
+    width: 200,
+    marginTop: 20,
+    backgroundColor: "white",
+    padding: 15,
+    borderRadius: 50,
+  },
+  btnText: {
+    color: "black",
+    fontSize: 20,
+    justifyContent: "center",
+    textAlign: "center",
+  },
 });
 
 export default HomeScreen;
