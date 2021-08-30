@@ -1,11 +1,20 @@
 import React, {useState} from 'react';  // How different components work together
-import {Text, StyleSheet, View, Button} from 'react-native';  // Take info from components and show data on mobile devices
+import {Text, StyleSheet, View, Button, FlatList} from 'react-native';  // Take info from components and show data on mobile devices
 
 const ColorScreen = () => {
+    const [colors, setColors] = useState([]);
     return (
         <View>
-            <Button title = "Add a Color" />
-            <View style = {{width: 100, height: 100, backgroundColor: randomRGB() }}></View>
+            <Button title = "Add a Color" onPress = {() => {
+                setColors([...colors, randomRGB()])
+            }} />
+            <FlatList
+            keyExtractor ={(item) => item}
+                data = {colors}
+                renderItem = {({item}) => {
+                    return <View style = {{width: 100, height: 100, backgroundColor: item }}></View>
+                }}
+            />
         </View>
     );
 };
